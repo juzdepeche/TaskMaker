@@ -1,0 +1,4 @@
+{
+	"webApiBaseUrl": "http://localhost:51787",
+	"test_jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXIxIiwibmJmIjoxNjAxNzQ0OTg0LCJleHAiOjE2MDE3NDg1ODQsImlhdCI6MTYwMTc0NDk4NH0.Y7y197ffDYxbac1eitxWy3aoI3tlvo-LSf4YWWE-n8s"
+}

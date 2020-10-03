@@ -18,7 +18,7 @@ namespace TaskMaker.Controllers
         {
             new Task(1, "Typescript", "Convert Javascript files to Typescript"),
             new Task(2, "Unit Tests", "Add unit tests using Jest"),
-            new Task(2, "Prettier", "Setup .prettierrc")
+            new Task(3, "Prettier", "Setup .prettierrc")
         };
 
         [HttpGet]
