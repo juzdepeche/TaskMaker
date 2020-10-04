@@ -2,13 +2,13 @@ import { webApiBaseUrl } from '../config/config.json';
 
 const authentificationControllerRoute = '/user/';
 
-export const Authenticate = (credentials) => {
+export const Authenticate = (username, password) => {
 	const requestOptions = {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: credentials,
+		body: JSON.stringify({ username, password }),
 	};
 
 	return fetch(

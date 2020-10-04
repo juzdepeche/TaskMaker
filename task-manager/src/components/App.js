@@ -1,6 +1,7 @@
 import React from 'react';
-import TaskList from './TaskList.js';
+import Dashboard from './Dashboard.js';
 import Login from './Login.js';
+import CreateTask from './CreateTask.js';
 import {
 	Switch,
 	Route,
@@ -8,6 +9,7 @@ import {
 	Redirect,
 } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute.js';
+import ModifyTask from './ModifyTask.js';
 import { IsLoggedIn } from '../services/AuthentificationService.js';
 import { useAsync } from 'react-async';
 
@@ -19,17 +21,19 @@ function App() {
 	return (
 		<>
 			<div>
-				<b>Task Maker</b>
+				<h1>Task Maker</h1>
 			</div>
 			<Router>
 				<Switch>
 					<Route path="/login" component={Login} />
-					<PrivateRoute path="/tasklist" component={TaskList} />
+					<PrivateRoute path="/dashboard" component={Dashboard} />
+					<PrivateRoute path="/createtask" component={CreateTask} />
+					<PrivateRoute path="/modifytask" component={ModifyTask} />
 					<Route
 						path="/"
 						render={(props) =>
 							!error && isLoggedIn ? (
-								<Redirect to="/tasklist" />
+								<Redirect to="/dashboard" />
 							) : (
 								<Redirect to="/login" />
 							)

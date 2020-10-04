@@ -10,21 +10,16 @@ export default function Login() {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		const credentials = {
-			username,
-			password,
-		};
-
-		const token = await Authenticate(JSON.stringify(credentials));
+		const token = await Authenticate(username, password);
 		//todo check if error
 		localStorage.setItem('jwt_token', token);
 		setIsLoggedIn(true);
 	};
 
-	if (isLoggedIn) return <Redirect to="/tasklist" />;
+	if (isLoggedIn) return <Redirect to="/dashboard" />;
 	return (
 		<form onSubmit={onSubmit}>
-			<h1>Login</h1>
+			<h2>Login</h2>
 			<input
 				placeholder="username"
 				onChange={(e) => setUsername(e.target.value)}

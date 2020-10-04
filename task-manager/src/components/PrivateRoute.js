@@ -4,7 +4,7 @@ import { IsLoggedIn } from '../services/AuthentificationService.js';
 import { useAsync } from 'react-async';
 
 export default function PrivateRoute({ component: Component, ...rest }) {
-	const { data: isLoggedIn, error, isLoading } = useAsync({
+	const { data: isLoggedIn, isLoading } = useAsync({
 		promiseFn: IsLoggedIn,
 	});
 	if (isLoading) return 'Loading...';

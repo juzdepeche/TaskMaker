@@ -1,4 +1,4 @@
-import { webApiBaseUrl, test_jwt } from '../config/config.json';
+import { webApiBaseUrl } from '../config/config.json';
 
 const taskControllerRoute = '/task/';
 
@@ -30,13 +30,21 @@ export const CreateTask = (title, description) => {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${test_jwt}`,
+			Authorization: `Bearer ${localStorage.getItem('jwt_token')}`,
 		},
-		body: { title, description },
+		body: JSON.stringify({ title, description }),
 	};
 	fetch(webApiBaseUrl + taskControllerRoute, requestOptions)
-		.then((response) => response.json())
-		.then((data) => console.log(data));
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw response;
+			}
+		})
+		.catch((error) => {
+			throw error.statusText;
+		});
 };
 
 export const UpdateTask = (id, title, description) => {
@@ -44,12 +52,19 @@ export const UpdateTask = (id, title, description) => {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${test_jwt}`,
+			Authorization: `Bearer ${localStorage.getItem('jwt_token')}`,
 		},
-		body: { title, description },
+		body: JSON.stringify({ id, title, description }),
 	};
-	return fetch(
-		webApiBaseUrl + taskControllerRoute + id,
-		requestOptions
-	).then((response) => response.json());
+	return fetch(webApiBaseUrl + taskControllerRoute + id, requestOptions)
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw response;
+			}
+		})
+		.catch((error) => {
+			throw error.statusText;
+		});
 };
