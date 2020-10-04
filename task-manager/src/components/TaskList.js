@@ -1,7 +1,7 @@
 import React from 'react';
-import Task from './Task.js';
-import { GetTasks } from '../services/TaskService.js';
 import { useAsync } from 'react-async';
+import { GetTasks } from '../services/TaskService.js';
+import Task from './Task.js';
 
 export default function TaskList() {
 	const { data: tasks, error, isLoading } = useAsync({ promiseFn: GetTasks });

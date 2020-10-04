@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Authenticate } from '../services/AuthentificationService.js';
 import { Redirect } from 'react-router-dom';
+import { Authenticate } from '../services/AuthentificationService.js';
 
 export default function Login() {
 	const [username, setUsername] = useState('');

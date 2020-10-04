@@ -1,17 +1,17 @@
 import React from 'react';
-import Dashboard from './Dashboard.js';
-import Login from './Login.js';
-import CreateTask from './CreateTask.js';
+import { useAsync } from 'react-async';
 import {
-	Switch,
-	Route,
 	BrowserRouter as Router,
 	Redirect,
+	Route,
+	Switch,
 } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute.js';
-import ModifyTask from './ModifyTask.js';
 import { IsLoggedIn } from '../services/AuthentificationService.js';
-import { useAsync } from 'react-async';
+import CreateTask from './CreateTask.js';
+import Dashboard from './Dashboard.js';
+import Login from './Login.js';
+import ModifyTask from './ModifyTask.js';
+import PrivateRoute from './PrivateRoute.js';
 
 function App() {
 	const { data: isLoggedIn, error, isLoading } = useAsync({

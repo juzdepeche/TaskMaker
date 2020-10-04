@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import TaskList from './TaskList.js';
 import { Redirect } from 'react-router-dom';
+import TaskList from './TaskList.js';
 
 export default function Dashboard() {
 	const [goToCreateTask, setGoToCreateTask] = useState(false);
