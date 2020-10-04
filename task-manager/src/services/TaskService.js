@@ -1,6 +1,6 @@
 import { webApiBaseUrl, test_jwt } from '../config/config.json';
 
-const taskControllerRoute = '/api/task/';
+const taskControllerRoute = '/task/';
 
 // todo: catch http errors
 
@@ -8,14 +8,21 @@ export const GetTasks = () => {
 	const requestOptions = {
 		method: 'GET',
 		headers: {
-			Authorization: `Bearer ${test_jwt}`,
+			Authorization: `Bearer ${localStorage.getItem('jwt_token')}`,
 		},
 	};
 
-	return fetch(
-		webApiBaseUrl + taskControllerRoute,
-		requestOptions
-	).then((response) => response.json());
+	return fetch(webApiBaseUrl + taskControllerRoute, requestOptions)
+		.then((response) => {
+			if (response.ok) {
+				return response.json();
+			} else {
+				throw response;
+			}
+		})
+		.catch((error) => {
+			throw error.statusText;
+		});
 };
 
 export const CreateTask = (title, description) => {
