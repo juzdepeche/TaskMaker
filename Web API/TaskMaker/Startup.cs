@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using TaskMaker.Models;
+using TaskMaker.services;
 
 namespace TaskMaker
 {
@@ -30,6 +31,7 @@ namespace TaskMaker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TaskContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TaskMaker")));
+            services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TaskMaker")));
 
             services.AddCors();
             services.AddControllers();

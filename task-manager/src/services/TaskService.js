@@ -1,8 +1,6 @@
 import { webApiBaseUrl } from '../config/config.json';
 
-const taskControllerRoute = '/task/';
-
-// todo: catch http errors
+const taskControllerRoute = '/tasks/';
 
 export const GetTasks = () => {
 	const requestOptions = {

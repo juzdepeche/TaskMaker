@@ -25,14 +25,13 @@ namespace TaskMaker.Controllers
 
         // GET: api/Tasks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Task>>> GetTasks()
+        public async Task<ActionResult<IEnumerable<Models.Task>>> GetTasks()
         {
-            var test = await _context.Tasks.ToListAsync();
-            return test;
+            return await _context.Tasks.ToListAsync();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTask(int id, Task task)
+        public async Task<IActionResult> PutTask(int id, Models.Task task)
         {
             if (id != task.Id)
             {
@@ -61,7 +60,7 @@ namespace TaskMaker.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Task>> PostTask(Task task)
+        public async Task<ActionResult<Models.Task>> PostTask(Models.Task task)
         {
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();

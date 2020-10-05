@@ -1,6 +1,6 @@
 import { webApiBaseUrl } from '../config/config.json';
 
-const authentificationControllerRoute = '/user/';
+const authentificationControllerRoute = '/users/';
 
 export const Authenticate = (username, password) => {
 	const requestOptions = {

@@ -6,15 +6,12 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using TaskMaker.Models;
 
-namespace TaskMaker
+namespace TaskMaker.services
 {
     public class JwtAuthentificationManager : IJwtAuthentificationManager
     {
-        //todo: use user db
-        private readonly IDictionary<string, string> users = new Dictionary<string, string>
-        { {"user1", "lol12345" }, {"user2", "bonjour" } };
-
         private readonly string key;
 
         public JwtAuthentificationManager(string key)
@@ -22,10 +19,9 @@ namespace TaskMaker
             this.key = key;
         }
 
-        public string Authenticate(string username, string password)
+        public string Authenticate(List<User> users, string username, string password)
         {
-            //todo: get users from db
-            if (!users.Any(u => u.Key == username && u.Value == password))
+            if (!users.Any(u => u.Username == username && u.Password == password))
             {
                 return null;
             }
