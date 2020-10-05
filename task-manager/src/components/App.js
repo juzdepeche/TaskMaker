@@ -21,7 +21,7 @@ function App() {
 	return (
 		<>
 			<div>
-				<h1>Task Maker</h1>
+				<h1 style={{ textAlign: 'center' }}>Task Maker</h1>
 			</div>
 			<Router>
 				<Switch>

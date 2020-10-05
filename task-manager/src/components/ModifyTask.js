@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UpdateTask } from '../services/TaskService.js';
+import { Form, Button, Card } from 'react-bootstrap';
 
 export default function ModifyTask({ location }) {
 	const [title, setTitle] = useState('');
@@ -19,17 +20,34 @@ export default function ModifyTask({ location }) {
 
 	if (taskUpdated) return <Redirect to="/dashboard" />;
 	return (
-		<form onSubmit={onSubmit}>
-			<h2>Create Task</h2>
-			<input
-				placeholder="title"
-				onChange={(e) => setTitle(e.target.value)}
-			></input>
-			<input
-				placeholder="description"
-				onChange={(e) => setDescription(e.target.value)}
-			></input>
-			<button>Save</button>
-		</form>
+		<div style={{ width: '100%' }}>
+			<Card style={{ width: '50%', margin: 'auto' }}>
+				<h2>Modify Task</h2>
+				<Form
+					style={{
+						margin: '12px',
+						verticalAlign: 'center',
+					}}
+					onSubmit={onSubmit}
+				>
+					<Form.Group>
+						<Form.Label>Title</Form.Label>
+						<Form.Control
+							placeholder="title"
+							onChange={(e) => setTitle(e.target.value)}
+						/>
+					</Form.Group>
+
+					<Form.Group>
+						<Form.Label>Description</Form.Label>
+						<Form.Control
+							placeholder="description"
+							onChange={(e) => setDescription(e.target.value)}
+						/>
+					</Form.Group>
+					<Button type="submit">Save</Button>
+				</Form>
+			</Card>
+		</div>
 	);
 }

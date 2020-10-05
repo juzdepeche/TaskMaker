@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 export default function Task({ task }) {
 	const [goToModifyTask, setGoToModifyTask] = useState(false);
@@ -11,9 +12,13 @@ export default function Task({ task }) {
 	if (goToModifyTask)
 		return <Redirect to={{ pathname: '/modifytask', state: { task } }} />;
 	return (
-		<div>
-			{task.id}:<button onClick={update}>Update</button>
-			{task.title} - {task.description}
-		</div>
+		<tr>
+			<td>{task.id}</td>
+			<td>
+				<Button onClick={update}>Update</Button>
+			</td>
+			<td>{task.title}</td>
+			<td>{task.description}</td>
+		</tr>
 	);
 }

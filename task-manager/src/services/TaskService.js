@@ -1,6 +1,6 @@
 import { webApiBaseUrl } from '../config/config.json';
 
-const taskControllerRoute = '/tasks/';
+const taskControllerRoute = '/task/';
 
 // todo: catch http errors
 
