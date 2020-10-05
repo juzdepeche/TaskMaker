@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAsync } from 'react-async';
+import { Table } from 'react-bootstrap';
 import { GetTasks } from '../services/TaskService.js';
 import Task from './Task.js';
-import { Table } from 'react-bootstrap';
 
 export default function TaskList() {
 	const { data: tasks, error, isLoading } = useAsync({ promiseFn: GetTasks });

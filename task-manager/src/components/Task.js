@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 
 export default function Task({ task }) {
 	const [goToModifyTask, setGoToModifyTask] = useState(false);

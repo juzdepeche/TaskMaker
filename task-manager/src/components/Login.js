@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Button, Card, Form } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { Authenticate } from '../services/AuthentificationService.js';
-import { Form, Button, Card } from 'react-bootstrap';
 
 export default function Login() {
 	const [username, setUsername] = useState('');

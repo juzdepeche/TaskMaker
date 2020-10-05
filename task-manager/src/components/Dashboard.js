@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Button, Card } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import TaskList from './TaskList.js';
-import { Button, Card } from 'react-bootstrap';
 
 export default function Dashboard() {
 	const [goToCreateTask, setGoToCreateTask] = useState(false);

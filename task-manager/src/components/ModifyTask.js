@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Button, Card, Form } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { UpdateTask } from '../services/TaskService.js';
-import { Form, Button, Card } from 'react-bootstrap';
 
 export default function ModifyTask({ location }) {
 	const [title, setTitle] = useState('');
